@@ -1,4 +1,5 @@
 import os, json
+import pymysql
 from django.core.exceptions import ImproperlyConfigured
 
 """
@@ -95,6 +96,8 @@ WSGI_APPLICATION = 'django_mariadb_sampleapp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+
+pymysql.install_as_MySQLdb()
 
 DATABASES = {
     'default': {

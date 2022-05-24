@@ -44,7 +44,7 @@ else:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "*.cloudtype.app"]
 
 # Application definition
 
@@ -55,6 +55,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    "rest_framework",
+
+    "students.apps.StudentsConfig",
+    "apis.apps.ApisConfig"
 ]
 
 MIDDLEWARE = [
@@ -93,8 +98,17 @@ WSGI_APPLICATION = 'django_mariadb_sampleapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': os.environ['DATABASE'],
+        # 'USER': os.environ['DB_USER'],
+        # 'PASSWORD': os.environ['DB_PASSWORD'],
+        # 'HOST': os.environ['DB_HOST'],
+        # 'PORT': os.environ['DB_PORT'],
+        'NAME': 'testdb',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',  # Don't use 'localhost'
+        'PORT': '3306',
     }
 }
 
@@ -121,9 +135,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
-
 USE_I18N = True
+
+TIME_ZONE = 'Asia/Seoul'
 
 USE_TZ = True
 

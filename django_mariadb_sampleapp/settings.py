@@ -99,16 +99,11 @@ WSGI_APPLICATION = 'django_mariadb_sampleapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': os.environ['DATABASE'],
-        # 'USER': os.environ['DB_USER'],
-        # 'PASSWORD': os.environ['DB_PASSWORD'],
-        # 'HOST': os.environ['DB_HOST'],
-        # 'PORT': os.environ['DB_PORT'],
-        'NAME': 'testdb',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': '127.0.0.1',  # Don't use 'localhost'
-        'PORT': '3306',
+        'NAME': os.environ['DATABASE'],
+        'USER': os.environ['DB_USER'],
+        'PASSWORD': os.environ['DB_PASSWORD'],
+        'HOST': os.environ['DB_HOST'],  # Don't use 'localhost'
+        'PORT': os.environ['DB_PORT'],
     }
 }
 
